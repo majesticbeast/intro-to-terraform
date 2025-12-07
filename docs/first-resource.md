@@ -167,5 +167,5 @@ to create a file, and then we deleted the file with a destroy run.
 
 ---
 
-**Next:** [Your First Resource](providers-lockfile-statefile.html)
+**Next:** [Providers, lock files, state files](providers-lockfile-statefile.html)
 

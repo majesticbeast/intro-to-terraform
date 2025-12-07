@@ -63,9 +63,11 @@ we will start configuring provider's and creating aliases.
 > as far as I have experienced, is the same as the provider's name/type.
 
 ### Provider configurations
-We can (and often must) configure our providers. We didn't need to with our `local_file` example, but generally with
-anything that calls a remote API, you'll need to do some configuration. This can involve passing in username, tokens,
-setting regions, etc. Let's take a look at how we do that:
+
+We can (and often must) configure our providers. We didn't need to with our `local_file` example, but with anything that
+calls a remote API, you'll likely need to do some configuration. This can involve passing in username, tokens, setting
+regions, etc. Let's take a look at how we do that:
+
 ```
 provider "[PROVIDER_NAME]" {
     [PROVIDER_ARGUMENTS]
@@ -73,5 +75,18 @@ provider "[PROVIDER_NAME]" {
 }
 ```
 
+**PROVIDER_ARGUMENTS** are unique to each provider.
 
+Taking the `aws` provider as an example, we have an enormous amount of arguments we could pass it into. Some are:
+- access_key
+- secret_key
+- token
+- region
+- profile
+- tons more...
+
+It's no coincidence that the available arguments will often match up to the same arguments you would pass into an AWS
+client if you're using the AWS SDK. Remember, a provider is a wrapper over existing APIs. In fact, the AWS provider is
+a wrapper around the AWS SDK for Go. See the provider source code for creating S3 buckets [here](https://github.com/hashicorp/terraform-provider-aws/blob/main/internal/service/s3/bucket.go)
+and note the imports at the top of the file, along with the actual SDK function calls like `input := &s3.CreateBucketInput`.
 
