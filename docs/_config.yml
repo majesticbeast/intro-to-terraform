@@ -1,0 +1,5 @@
+markdown: kramdown
+highlighter: o
+
+kramdown:
+  syntax_highlighter: rouge
