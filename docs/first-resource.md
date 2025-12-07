@@ -152,26 +152,11 @@ If that's what you see, type yes and hit enter. If you run `ls` again, you'll se
 
 ## Terraform workflow diagram
 
-```mermaid
-flowchart TD
-    Start([Write/Update .tf files]) --> Check{New providers or modules?}
-    
-    Check --> |Yes| Init[terraform init]
-    Check --> |No| Plan[terraform plan]
-    
-    Init --> Plan
-    
-    Plan --> Changes{Changes detected?}
-    
-    Changes --> |No| Done([No action needed])
-    Changes --> |Yes| Apply[terraform apply]
-    
-    Apply --> Deployed([Infrastructure updated])
-    
-    style Init fill:#e1f5ff
-    style Plan fill:#fff4e1
-    style Apply fill:#ffe1e1
-    style Deployed fill:#e1ffe1
+It's a simple loop, no different from programming languages where you modify code, run tests, and commit/merge.
+
+```
+Write/Update files -> Plan -> Apply -\
+     ^-------------------------------/
 ```
 
 ## Summary
@@ -181,7 +166,5 @@ initialized our project, ran a plan to see what changes would happen if we did a
 to create a file, and then we deleted the file with a destroy run.
 
 ---
-<p align="center">
-    ← Prev: <a href="index.md">Intro</a> | 
-    Next: <a href="providers-lockfile-statefile.md">Providers? Lock file? State file?</a> →
-</p>
+**Next:** [Your First Resource](providers-lockfile-statefile.md)
+
