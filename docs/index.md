@@ -40,7 +40,7 @@ HashiCorp's products like Terraform, Vault, Nomad, and Packer. Terraform is the 
 HCL into AWS infrastructure, GCP infrastructure, local system files, GitHub repos, or a ton of other things.
 
 Let's take a quick look at what HCL looks like:
-```tf
+```terraform
 resource "aws_s3_bucket" "my_bucket" {
     bucket = "my-tf-test-bucket"
 
