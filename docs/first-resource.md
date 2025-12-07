@@ -32,8 +32,8 @@ Running Terraform consists of 2-3 phases.
 - plan
 - apply
 
-The init phase is really just a one time thing, or after you make certain adjustments to your code (adding or removing
-`providers` - we'll go over what those are shortly)
+The init phase initializes the working directory and downloads necessary dependencies. This means you run it initially,
+and then whenever those dependencies change (like when changing providers or module calls).
 
 In the plan phase, Terraform compares your desired configuration against the current state and shows you exactly what
 changes it will make (create, update, or destroy resources) without actually making them.
@@ -45,4 +45,4 @@ Each phase is run by simply adding the phase as a subcommand to your `terraform`
 
 ## Running Terraform
 
-...
+
