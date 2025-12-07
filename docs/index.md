@@ -1,3 +1,11 @@
+---
+layout: default
+title: Home
+---
+
+# Introduction to Terraform
+...
+
 # Introduction
 
 What is Terraform?
