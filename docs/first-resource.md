@@ -33,7 +33,7 @@ Running Terraform consists of 2-3 phases.
 - apply
 
 The init phase initializes the working directory and downloads necessary dependencies. This means you run it initially,
-and then whenever those dependencies change (like when changing providers or module calls).
+and then whenever those dependencies change (like when changing "providers" or module calls).
 
 In the plan phase, Terraform compares your desired configuration against the current state and shows you exactly what
 changes it will make (create, update, or destroy resources) without actually making them.
@@ -55,11 +55,13 @@ you should have output similar to this:
 $ terraform init
 Initializing the backend...
 Initializing provider plugins...
-- Reusing previous version of hashicorp/local from the dependency lock file
-- Using previously-installed hashicorp/local v2.6.1
-Terraform has made some changes to the provider dependency selections recorded
-in the .terraform.lock.hcl file. Review those changes and commit them to your
-version control system if they represent changes you intended to make.
+- Finding latest version of hashicorp/local...
+- Installing hashicorp/local v2.6.1...
+- Installed hashicorp/local v2.6.1 (signed by HashiCorp)
+Terraform has created a lock file .terraform.lock.hcl to record the provider
+selections it made above. Include this file in your version control repository
+so that Terraform can guarantee to make the same selections by default when
+you run "terraform init" in the future.
 
 Terraform has been successfully initialized!
 
@@ -70,7 +72,11 @@ should now work.
 If you ever set or change modules or backend configuration for Terraform,
 rerun this command to reinitialize your working directory. If you forget, other
 commands will detect it and remind you to do so if necessary.
+
 ```
+
+We can see this causes some stuff to get downloaded, it creates a lock file `.terraform.lock.hcl`, we will go into
+these a bit later.
 
 ### Plan phase
 In the same working directory, execute your Terraform plan:
@@ -141,8 +147,14 @@ plan and apply workflow, except the summary line stating what will be added, cha
 Plan: 0 to add, 0 to change, 1 to destroy
 ```
 
-If that's what you see, type yes and hit enter.
+If that's what you see, type yes and hit enter. If you run `ls` again, you'll see the file is gone.
 
+## Summary
 
+In this lesson we got a high-level look at the typical Terraform workflow. We created our first `.tf` file, we
+initialized our project, ran a plan to see what changes would happen if we did an apply, and then we did the apply
+to create a file, and then we deleted the file with a destroy run.
 
+---
 
+<p align="right">**Next:** [Providers? Lock file? State file? This is madness!](providers-lockfile-statefile.md)</p>
