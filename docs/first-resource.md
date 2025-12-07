@@ -152,6 +152,7 @@ If that's what you see, type yes and hit enter. If you run `ls` again, you'll se
 
 ## Terraform workflow diagram
 
+```mermaid
 flowchart TD
     Start([Write/Update .tf files]) --> Check{New providers or modules?}
     
@@ -171,6 +172,7 @@ flowchart TD
     style Plan fill:#fff4e1
     style Apply fill:#ffe1e1
     style Deployed fill:#e1ffe1
+```
 
 ## Summary
 
