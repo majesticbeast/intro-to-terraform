@@ -166,5 +166,6 @@ initialized our project, ran a plan to see what changes would happen if we did a
 to create a file, and then we deleted the file with a destroy run.
 
 ---
-**Next:** [Your First Resource](providers-lockfile-statefile.md)
+
+**Next:** [Your First Resource](providers-lockfile-statefile.html)
 

@@ -63,4 +63,4 @@ There you have it, when processed by Terraform that code will create an AWS S3 B
 
 ---
 
-**Next:** [Your First Resource](first-resource.md)
+**Next:** [Your First Resource](first-resource.html)
