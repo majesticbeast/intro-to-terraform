@@ -157,4 +157,4 @@ to create a file, and then we deleted the file with a destroy run.
 
 ---
 
-<p align="right">**Next:** [Providers? Lock file? State file? This is madness!](providers-lockfile-statefile.md)</p>
+<p align="right">Next: <a href="providers-lockfile-statefile.md">Providers? Lock file? State file? This is madness!</p>
