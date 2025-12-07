@@ -1,16 +1,15 @@
-/* Claude.ai Theme - Clean, Modern Documentation Style */
-
 :root {
-  --bg-primary: #ffffff;
-  --bg-secondary: #f7f7f7;
-  --text-primary: #1f1f1f;
-  --text-secondary: #666666;
+  --bg-primary: #2f2d2e;
+  --bg-secondary: #3a3738;
+  --bg-elevated: #423f40;
+  --text-primary: #ececec;
+  --text-secondary: #b4b4b4;
   --accent: #cc785c;
   --accent-hover: #b86a4e;
-  --border: #e5e5e5;
-  --code-bg: #f5f5f5;
-  --link: #0066cc;
-  --link-hover: #0052a3;
+  --border: #4a4748;
+  --code-bg: #3a3738;
+  --link: #8ab4f8;
+  --link-hover: #aac7ff;
 }
 
 * {
