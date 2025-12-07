@@ -50,7 +50,7 @@ resource "aws_s3_bucket" "my_bucket" {
     }
 }
 ```
-There you have it, that code when processed by Terraform will create an AWS S3 Bucket.
+There you have it, when processed by Terraform that code will create an AWS S3 Bucket.
 
 ---
 
@@ -61,3 +61,6 @@ There you have it, that code when processed by Terraform will create an AWS S3 B
 - An account with <INSERT REMOTE API PROVIDER HERE>
 - Text editor
 
+---
+
+**Next:** [Your First Resource](first-resource.md)
