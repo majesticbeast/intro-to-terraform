@@ -1,3 +1,5 @@
+/* Claude.ai Theme - Clean, Modern Documentation Style */
+
 :root {
   --bg-primary: #2f2d2e;
   --bg-secondary: #3a3738;
@@ -34,6 +36,7 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 1rem;
   font-weight: 600;
   line-height: 1.3;
+  color: #d4a89a;
 }
 
 h1 {
