@@ -149,6 +149,29 @@ Plan: 0 to add, 0 to change, 1 to destroy
 
 If that's what you see, type yes and hit enter. If you run `ls` again, you'll see the file is gone.
 
+
+## Terraform workflow diagram
+
+flowchart TD
+    Start([Write/Update .tf files]) --> Check{New providers or modules?}
+    
+    Check --> |Yes| Init[terraform init]
+    Check --> |No| Plan[terraform plan]
+    
+    Init --> Plan
+    
+    Plan --> Changes{Changes detected?}
+    
+    Changes --> |No| Done([No action needed])
+    Changes --> |Yes| Apply[terraform apply]
+    
+    Apply --> Deployed([Infrastructure updated])
+    
+    style Init fill:#e1f5ff
+    style Plan fill:#fff4e1
+    style Apply fill:#ffe1e1
+    style Deployed fill:#e1ffe1
+
 ## Summary
 
 In this lesson we got a high-level look at the typical Terraform workflow. We created our first `.tf` file, we
