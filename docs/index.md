@@ -10,7 +10,7 @@ title: Home
 > HashiCorp Terraform is an infrastructure as code tool that lets you define both cloud and on-prem resources in
 > human-readable configuration files that you can version, reuse, and share.
 
-Or, put simply, its a tool that allows you to write configuration code (HCL) to create infrastructure.
+Or, put simply, it's a tool that allows you to write configuration code (HCL) to create infrastructure.
 
 However, it's much more than that, because in reality, Terraform is just a wrapper around any API. This can be an API
 on your local system, Docker engine, GitHub, the Domino's Pizza ordering API, AWS/GCP/Azure. Literally, anything that
@@ -30,6 +30,8 @@ There are tons of benefits of IaC, just a couple though:
 - Self-documenting infrastructure (no clicking through 300 services and multiple regions in the AWS console to see what
     you have running)
 
+One HUGE benefit that comes as a logical consequence of item 3 above, is that when you're done testing something, you can
+delete all your infrastructure with a single command.
 
 ---
 

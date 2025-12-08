@@ -8,6 +8,7 @@ title: Home
 ## Providers
 
 ### What are they
+
 You've already seen mention of providers on the prior pages, but I didn't explain what they are. If you recall,
 in the intro I mentioned that Terraform is really just a wrapper over an existing API. That's *truish*. To be exact, a
 provider is the actual wrapper around any given API or set of related APIs.
@@ -90,3 +91,60 @@ client if you're using the AWS SDK. Remember, a provider is a wrapper over exist
 a wrapper around the AWS SDK for Go. See the provider source code for creating S3 buckets [here](https://github.com/hashicorp/terraform-provider-aws/blob/main/internal/service/s3/bucket.go)
 and note the imports at the top of the file, along with the actual SDK function calls like `input := &s3.CreateBucketInput`.
 
+The "alias" argument is slightly more difficult to understand. Sometimes you'll want to use the same provider but with
+different configurations. Think of this as just creating multiple SDK clients with different configurations. Maybe you
+want to create 2 S3 buckets, one in us-west-2 and one in us-east-1, so you can back up the one bucket with the other.
+
+```
+provider "aws" {
+    region = "us-west-2"
+}
+
+provider "aws" {
+    alias  = "east"
+    region = "us-east-1"
+}
+
+resource "aws_s3_bucket" "primary" {
+  bucket = "my-primary-data-store"
+}
+
+resource "aws_s3_bucket" "backup" {
+  provider = aws.east
+  bucket   = "my-backup-data-store"
+}
+```
+
+When you have a resource and you don't provide the `provider` argument, it uses the default provider that you have
+configured. If you don't configure the provider at all, it will use default settings (credentials, region, etc).
+
+## Lock files
+
+The lock file `.terraform.lock.hcl` records the exact versions of providers that Terraform downloaded during the init
+phase. It's essentially Terraform's version of the `package-lock.json` or `go.mod`. You will have one in your directory
+by now, feel free to go check it out.
+
+## State files
+
+The `terraform.tfstate` state file is the most important piece of your workspace. It is Terraform's database that tracks
+the current state of your real-world infrastructure (or whatever it is you used Terraform for, like creating a local
+file). Since we don't have any real resources yet, we won't get into it too much. For now, just know that it maps your
+Terraform code to actual resources and stores metadata about those resources, as well as relationships between your
+resources.
+
+## Terraform documentation
+
+Wondering yet where to find what arguments you can pass your provider? Or what resources you can create? And what
+arguments are available to those resources? You'll want to head on over to the Terraform provider documentation [here](https://registry.terraform.io/providers/hashicorp/aws/latest/docs).
+
+Due to the way the provider docs are laid out, the search is horrible. So when I'm looking anything in there, I usually
+just use a search engine with a few keywords, like so: `tf aws s3 bucket`.
+
+
+## Summary
+
+We went over what providers are, how to configure them, and the importance of the `required_providers` block. We also
+briefly covered what the lock and state files are.
+
+You are ready to use Terraform to go deploy resources. There's a ton of stuff yet to be covered, but if you're itching
+to go deploy cloud resources, go ahead! Just remember to `terraform destroy` when done experimenting.
