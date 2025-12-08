@@ -167,5 +167,9 @@ to create a file, and then we deleted the file with a destroy run.
 
 ---
 
-**Next:** [Providers, lock files, state files](providers-lockfile-statefile.html)
+### Up next
+
+We dive into what providers are, and the purpose of lock files and state files
+
+-> [Providers, lock files, state files](providers-lockfile-statefile.html)
 

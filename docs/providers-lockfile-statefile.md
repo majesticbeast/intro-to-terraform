@@ -3,7 +3,7 @@ layout: default
 title: Home
 ---
 
-# Providers, Lock Files, and State Files.
+# Providers, Lock Files, and State Files
 
 ## Providers
 
@@ -59,7 +59,7 @@ use a single provider.
 In the above block of code, we set the provider's "local name" to "aws". This comes into play in the next section where
 we will start configuring provider's and creating aliases.
 
-> Note: While you can use a different "local name" for your provider, it's idiomatic to name it the same as the
+> While you can use a different "local name" for your provider, it's idiomatic to name it the same as the
 > provider's preferred local name. The preferred local name is simply the prefix it uses for all it's resource types and
 > as far as I have experienced, is the same as the provider's name/type.
 
@@ -148,3 +148,11 @@ briefly covered what the lock and state files are.
 
 You are ready to use Terraform to go deploy resources. There's a ton of stuff yet to be covered, but if you're itching
 to go deploy cloud resources, go ahead! Just remember to `terraform destroy` when done experimenting.
+
+---
+
+### Up next
+
+We setup our new project and reference the HashiCorp style guide to ensure best practices.
+
+-> [Project Setup](project-setup)
