@@ -32,10 +32,10 @@ workspace_root:
 
 ### File breakdown
 
-**main.tf* contains all your resource and data source blocks (we'll explore data source blocks later).  
-**variables.tf** contains your variable declarations.
-**outputs.tf** contains outputs, or values that your code returns to its caller.
-**terraform.auto.tfvars** contains your variable definitions.
+**main.tf** contains all your resource and data source blocks (we'll explore data source blocks later).  
+**variables.tf** contains your variable declarations.  
+**outputs.tf** contains outputs, or values that your code returns to its caller.  
+**terraform.auto.tfvars** contains your variable definitions.  
 
 So you use your variables in `main.tf`, you declare your variables in `variables.tf`, then you give those variables
 values in your `.tfvars` files. Then whatever you want to output (like an S3 URL or role ARN) you add to `outputs.tf`.
