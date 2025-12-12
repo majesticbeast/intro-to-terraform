@@ -47,10 +47,58 @@ a single file and throw everything in there.
 ## The project
 
 It may feel dated, but we'll be building a standard 3-tier web app that uses virtual machines and not containers.
-Well... we'll be building the infrastructure to host it. There will be little to no application code. For those not
-familiar, a 3-tier web app consists of a frontend (i.e. the website), the backend (the API), and a database.
+Or rather, we'll be building the infrastructure to host it. There will be little to no application code. For those not
+familiar, a 3-tier web app consists of a frontend (i.e. the website), the backend (the API), and a database. As this is
+not an AWS course, we'll be using simulated infrastructure with a custom TF provider, and ignoring a bunch of the
+supporting resources you would normally need.
 
-This is not your typical PaaS deployment. We are responsible for the underlying architecture all the way down to the
-network layer.
+### The diagram
 
-### 
+                              Internet
+                                 │
+                                 ▼
+                         ┌───────────────┐
+                         │ Load Balancer │
+                         │  (mycloud_lb) │
+                         └───────┬───────┘
+                                 │
+                 ┌───────────────┼───────────────┐
+                 │               │               │
+                 ▼               ▼               ▼
+         ┌──────────────┐┌──────────────┐┌──────────────┐
+         │  Web Server  ││  Web Server  ││  Web Server  │
+         │   (instance) ││   (instance) ││   (instance) │
+         └──────┬───────┘└──────┬───────┘└──────┬───────┘
+                │               │               │
+                └───────────────┼───────────────┘
+                                │
+                ┌───────────────┼───────────────┐
+                │               │               │
+                ▼               ▼               ▼
+         ┌──────────────┐┌──────────────┐┌──────────────┐
+         │  App Server  ││  App Server  ││  App Server  │
+         │   (instance) ││   (instance) ││   (instance) │
+         └──────┬───────┘└──────┬───────┘└──────┬───────┘
+                │               │               │
+                └───────────────┼───────────────┘
+                                │
+                                ▼
+                         ┌──────────────┐
+                         │   Database   │
+                         │ (mycloud_db) │
+                         └──────┬───────┘
+                                │
+                                │ (backups)
+                                ▼
+                         ┌──────────────┐
+                         │Storage Bucket│
+                         │(mycloud_bucket)│
+                         └──────────────┘
+
+### Key learning objectives:
+- Resource dependencies (instances → database, lb → instances)
+- Count/for_each (multiple web/app servers)
+- Outputs (lb endpoint, db connection string)
+- Variables (server count, instance types, environment)
+- Modules (reusable "tier" or "environment" patterns)
+- Data sources (lookup available instance types, images)
