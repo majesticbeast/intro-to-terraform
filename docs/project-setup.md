@@ -59,7 +59,7 @@ supporting resources you would normally need.
                                  ▼
                          ┌───────────────┐
                          │ Load Balancer │
-                         │  (mycloud_lb) │
+                         │    (mws_lb)   │
                          └───────┬───────┘
                                  │
                  ┌───────────────┼───────────────┐
@@ -85,14 +85,14 @@ supporting resources you would normally need.
                                 ▼
                          ┌──────────────┐
                          │   Database   │
-                         │ (mycloud_db) │
+                         │   (mws_db)   │   
                          └──────┬───────┘
                                 │
                                 │ (backups)
                                 ▼
                          ┌──────────────┐
                          │Storage Bucket│
-                         │(mycloud_bucket)│
+                         │ (mws_bucket) │
                          └──────────────┘
 
 ### Key learning objectives:
