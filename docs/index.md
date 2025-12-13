@@ -37,11 +37,14 @@ delete all your infrastructure with a single command.
 
 ## How do I write Terraform?
 
-Well, you actually write HashiCorp Configuration Language (HCL). HCL is a configuration language used across all
-HashiCorp's products like Terraform, Vault, Nomad, and Packer. Terraform is the binary that you can run to turn your
-HCL into AWS infrastructure, GCP infrastructure, local system files, GitHub repos, or a ton of other things.
+You write in the Terraform Language. This is a domain-specific language that uses the HashiCorp Configuration Language (HCL)
+toolkit for its syntax.
 
-Let's take a quick look at what HCL looks like:
+While HCL is the low-level syntax used across many HashiCorp tools (defining how to write blocks, arguments, and expressions),
+the Terraform Language extends this with specific constructs for infrastructure—such as Resources, Data Sources, and Providers.
+Terraform is also the binary that parses this language to orchestrate APIs for AWS, Azure, GitHub, and more.
+
+Let's take a quick look at what Terraform looks like:
 ```terraform
 resource "aws_s3_bucket" "my_bucket" {
     bucket = "my-tf-test-bucket"
@@ -52,7 +55,7 @@ resource "aws_s3_bucket" "my_bucket" {
     }
 }
 ```
-There you have it, when processed by Terraform that code will create an AWS S3 Bucket.
+There you have it, that code will create an AWS S3 Bucket.
 
 ---
 
